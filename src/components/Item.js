@@ -1,12 +1,13 @@
-const Item = ({id, titulo, precio, descripcion, img}) =>{
+import { NavLink } from "react-router-dom"
+const Item = ({titulo, precio, img, id}) =>{
+
    return(
     <>
-        <div style={style.contenedor}>
+        <div style={style.contenedor} >
         <h2>{titulo}</h2>
-        <p>{`Id: ${id}`}</p>
         <p> {`Precio: $${precio}`}</p>
-        <p>{descripcion}</p>
         <img style={style.img}src={img} alt=""></img>
+        <NavLink to={`/item/${id}`}><button>Ver mas</button></NavLink>
         </div>
     </>
     )
@@ -14,8 +15,15 @@ const Item = ({id, titulo, precio, descripcion, img}) =>{
 const style = {
     contenedor: {
         border: "2px solid black",
-        width: 300,
-        height: 400
+        width: 250,
+        height: 370,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-evenly",
+        backgroundColor: "#acdeff",
+        borderRadius: "5%"
+
     },
     img:{
         width: 100,
