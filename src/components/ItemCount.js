@@ -13,6 +13,10 @@ const ItemCount = ({stock, initial, onAdd}) =>{
             setContador(contador - 1)
         }
     }
+    const mandarAlPadre = () =>{
+        onAdd(contador)
+    }
+
     return(
         <>
             <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
@@ -21,7 +25,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
                     <p>{contador}</p>
                     <button onClick={menos}>-</button>
                 </div>
-                <button onClick={onAdd}>Comprar</button>
+                <button onClick={mandarAlPadre}>Comprar</button>
             </div>
         </>
     )

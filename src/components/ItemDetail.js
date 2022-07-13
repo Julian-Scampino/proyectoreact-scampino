@@ -1,8 +1,14 @@
 import ItemCount from './ItemCount'
+import { NavLink } from 'react-router-dom'
+import {useState} from 'react'
 
 const ItemDetail = ({item}) =>{
-    const onAdd = () =>{
-        alert("Comprado, gracias")
+
+    const [comprar, setComprar] = useState (true)
+
+    const onAdd = (unidades) =>{
+        console.log(`Recibido del hijo ${unidades} unidades`)
+        setComprar(false)       
     }
 
     return(
@@ -13,7 +19,7 @@ const ItemDetail = ({item}) =>{
             <p>{`Categoría: ${item.category}`}</p>
             <p>{item.description}</p>
             <img style={style.img}src={item.image} alt=""></img>
-            <ItemCount stock={5} initial={1} onAdd={onAdd} />
+            {comprar ? <ItemCount stock={5} initial={1} onAdd={onAdd}/> : <NavLink to="/cart"><button>Terminar compra</button></NavLink>}
         </div>
     )
 }
