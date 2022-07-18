@@ -9,7 +9,6 @@ const ItemListContainer = ({greeting}) =>{
     const [loading, setLoading] = useState(true)
 
     let {categoryId} = useParams()
-
     useEffect(()=>{
         setTimeout(()=>{
         const link = categoryId ? `https://fakestoreapi.com/products/category/${categoryId}` : 'https://fakestoreapi.com/products'
@@ -22,7 +21,7 @@ const ItemListContainer = ({greeting}) =>{
         .finally(() =>{
             setLoading(false)
         })
-        }, 2000)
+        }, 500)
     },[categoryId])
 
     return(

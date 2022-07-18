@@ -15,7 +15,7 @@ const NavBar = () =>{
             setCategorias(json)
         })
         .catch(err=>console.log(err))
-        }, 1000)
+        }, 500)
     },[])
 
     return(

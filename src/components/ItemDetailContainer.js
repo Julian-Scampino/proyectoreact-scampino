@@ -16,7 +16,7 @@ const ItemDetailContainer = () =>{
             .catch(err=>console.log(err))
             .finally(()=>{
                 setLoading(false)})
-        }, 2000)
+        }, 500)
     },[id])
 
     return(

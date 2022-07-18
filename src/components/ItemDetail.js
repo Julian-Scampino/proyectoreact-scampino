@@ -1,13 +1,17 @@
 import ItemCount from './ItemCount'
 import { NavLink } from 'react-router-dom'
 import {useState} from 'react'
+import {useContext} from 'react'
+import {contexto} from './CartContext'
 
 const ItemDetail = ({item}) =>{
+    const {addItem} = useContext(contexto)
 
     const [comprar, setComprar] = useState (true)
 
     const onAdd = (unidades) =>{
         console.log(`Recibido del hijo ${unidades} unidades`)
+        addItem({...item, cantidad: unidades})
         setComprar(false)       
     }
 
